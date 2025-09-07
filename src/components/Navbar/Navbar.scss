@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: white;
+
+  &-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color: #f79300;
+      }
+    }
+  }
+}
