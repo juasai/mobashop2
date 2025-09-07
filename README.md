@@ -6,4 +6,4 @@ Aplicacion de carrito de compras con React
 
 Ver el proyecto publicado en:
 
-https://juasai.github.io/mobashop/
+https://juasai.github.io/mobashop2/
