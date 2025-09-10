@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Item = ({ product }) => {
   return (
-    <div>
+    <div style={{ textAlign: 'center' }}>
       <img src={product.image} alt={product.name} style={{ width: '100px', height: '100px' }} />
       <h3>{product.title}</h3>
       <p>Precio: ${product.price}</p>
