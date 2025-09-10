@@ -20,7 +20,7 @@ const ItemListContainer = () => {
 
   return (
     <div>
-      <h2>{category ? `Categoría: ${category}` : "Catálogo de Productos"}</h2>
+      <h2 style={{ textAlign: 'center' }}>{category ? `Categoría: ${category}` : "Catálogo de Productos"}</h2>
       <ItemList products={products} />
     </div>
   );
