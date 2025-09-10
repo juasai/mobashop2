@@ -5,26 +5,20 @@ const products = [
   { id: 4, name: "Producto 4", category: "categoria3", price: 300, description: "Descripción del producto 4" },
 ];
 
-export const getProducts = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 1000);
-  });
+export const getProducts = async () => {
+  const response = await fetch('https://fakestoreapi.com/products');
+  const data = await response.json();
+  return data;
 };
 
-export const getProductById = (id) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products.find((product) => product.id === parseInt(id)));
-    }, 1000);
-  });
+export const getProductById = async (id) => {
+  const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+  const data = await response.json();
+  return data;
 };
 
-export const getProductsByCategory = (category) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products.filter((product) => product.category === category));
-    }, 1000);
-  });
+export const getProductsByCategory = async (category) => {
+  const response = await fetch(`https://fakestoreapi.com/products/category/${category}`);
+  const data = await response.json();
+  return data;
 };
