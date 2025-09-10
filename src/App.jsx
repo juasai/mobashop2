@@ -6,8 +6,10 @@
 import "./styles/style.scss";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./containers/Home/Home";
+import ItemListContainer from "./containers/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailContainer";
 
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 //const basename = process.env.NODE_ENV === "production" ? "/mobashop2" : "";
 // Configuración del basename
 const basename = import.meta.env.PROD ? "/mobashop2" : "";
@@ -19,10 +21,13 @@ function App() {
      <BrowserRouter basename={basename}>
       <main>
         <Navbar />
-        <Home welcomeMessage="¡Bienvenido a MiTienda!">
-          {/* Aquí iran los productos */}
-          <p>Próximamente: Catálogo de productos</p>
-        </Home>
+        <Routes>
+          <Route path="/" element={<Home welcomeMessage="¡Bienvenido a MiTienda!" />} />
+          <Route path="/productos" element={<ItemListContainer />} />
+          <Route path="/productos/:category" element={<ItemListContainer />} />
+          <Route path="/producto/:id" element={<ItemDetailContainer />} />
+          <Route path="*" element={<p>404 - Página no encontrada</p>} />
+        </Routes>
       </main>
     </BrowserRouter>
   )
