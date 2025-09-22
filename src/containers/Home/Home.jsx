@@ -6,7 +6,7 @@ const Home = ({ welcomeMessage, children }) => {
         <div className="banner-content">
           <h2>{welcomeMessage}</h2>
           <p>Descubre nuestras mejores ofertas y promociones exclusivas.</p>
-          <button className="cta-button">Explorar ahora</button>
+          <button className="cta-button" onClick={() => window.location.href = '/productos'}>Explorar ahora</button>
         </div>
       </div>
       <h3 className="promotions-title">Promociones Destacadas</h3>
