@@ -26,11 +26,31 @@ const ItemListContainer = () => {
 
   return (
     <div style={{ display: 'flex' }}>
-      <div style={{ width: '20%', padding: '10px', borderRight: '1px solid #ccc' }}>
-        <h3>Categorías</h3>
+      <div style={{ width: '20%', padding: '20px', backgroundColor: '#f9f9f9', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: '10px' }}>
+        <h3 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Categorías</h3>
         <ul style={{ listStyleType: 'none', padding: 0 }}>
           {categories.map((cat) => (
-            <li key={cat} style={{ marginBottom: '10px', cursor: 'pointer' }} onClick={() => handleCategoryClick(cat)}>
+            <li key={cat} style={{
+              marginBottom: '15px',
+              cursor: 'pointer',
+              padding: '10px',
+              textAlign: 'center',
+              border: '1px solid #004080',
+              borderRadius: '5px',
+              backgroundColor: '#004080',
+              color: 'white',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)'
+            }}
+            onClick={() => handleCategoryClick(cat)}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#f79300';
+              e.target.style.color = '#004080';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#004080';
+              e.target.style.color = 'white';
+            }}>
               {cat}
             </li>
           ))}
