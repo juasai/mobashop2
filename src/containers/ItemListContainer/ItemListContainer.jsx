@@ -37,7 +37,7 @@ const ItemListContainer = () => {
         </ul>
       </div>
       <div style={{ width: '80%' }}>
-      <h2 style={{ textAlign: 'center' }}>{category ? `Categoría: ${category}` : "Catálogo de Productos"}</h2>
+      <h2 style={{ textAlign: 'center', color: 'white' }}>{category ? `Categoría: ${category}` : "Catálogo de Productos"}</h2>
       <ItemList products={products} />
       </div>
     </div>
