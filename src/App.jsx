@@ -10,6 +10,7 @@ import ItemListContainer from "./containers/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailContainer";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CartProvider from "./context/CartContext";
 import Contact from "./containers/Contact/Contact";
 //const basename = process.env.NODE_ENV === "production" ? "/mobashop2" : "";
 // Configuración del basename
@@ -31,7 +32,8 @@ function App() {
   }, []);
 
   return (
-     <BrowserRouter basename={basename}>
+     <CartProvider>
+       <BrowserRouter basename={basename}>
       <main>
         <Navbar />
         <Routes>
@@ -43,7 +45,8 @@ function App() {
           <Route path="*" element={<p>404 - Página no encontrada</p>} />
         </Routes>
       </main>
-    </BrowserRouter>
+       </BrowserRouter>
+     </CartProvider>
   )
 }
 

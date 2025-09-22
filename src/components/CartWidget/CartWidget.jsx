@@ -1,17 +1,37 @@
 import "./CartWidget.scss";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
-  const [cartCount, setCartCount] = useState(0);
+  const { cart, getTotalItems, getTotalPrice } = useContext(CartContext);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const updateCartCount = (count) => {
-    setCartCount(cartCount + count);
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
   };
   return (
-    <div className="cart-widget">
+    <div className="cart-widget" onClick={toggleCart}>
       <span>🛒</span>
-      <span className="cart-counter">{cartCount}</span>
+      <span className="cart-counter">{getTotalItems()}</span>
+      {isCartOpen && (
+        <div className="cart-dropdown">
+          {cart.length > 0 ? (
+            <>
+              <ul>
+                {cart.map((item) => (
+                  <li key={item.id}>
+                    {item.title} x {item.quantity} - ${item.price * item.quantity}
+                  </li>
+                ))}
+              </ul>
+              <p>Total: ${getTotalPrice()}</p>
+            </>
+          ) : (
+            <p>El carrito está vacío!</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };

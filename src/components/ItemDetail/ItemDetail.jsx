@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
 
 const ItemDetail = ({ product }) => {
   const [addedToCart, setAddedToCart] = useState(false);
 
+  const { addToCart } = useContext(CartContext);
+
   const handleAddToCart = (count) => {
-    const cartWidget = document.querySelector(".cart-widget");
-    const cartCounter = cartWidget.querySelector(".cart-counter");
-    const currentCount = parseInt(cartCounter.textContent) || 0;
-    cartCounter.textContent = currentCount + count;
+    addToCart(product, count);
     setAddedToCart(true);
   };
 
