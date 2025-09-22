@@ -10,6 +10,7 @@ import ItemListContainer from "./containers/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailContainer";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Contact from "./containers/Contact/Contact";
 //const basename = process.env.NODE_ENV === "production" ? "/mobashop2" : "";
 // Configuración del basename
 const basename = import.meta.env.PROD ? "/mobashop2" : "";
@@ -38,6 +39,7 @@ function App() {
           <Route path="/productos" element={<ItemListContainer />} />
           <Route path="/productos/:category" element={<ItemListContainer />} />
           <Route path="/producto/:id" element={<ItemDetailContainer />} />
+          <Route path="/contacto" element={<Contact />} />
           <Route path="*" element={<p>404 - Página no encontrada</p>} />
         </Routes>
       </main>
