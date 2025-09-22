@@ -12,7 +12,7 @@ const Home = ({ welcomeMessage, children }) => {
       <h3 className="promotions-title">Promociones Destacadas</h3>
       <div className="product-slider">
         <div className="slider-wrapper">
-          {children && children.sort((a, b) => a.price - b.price).slice(0, 5).map((product) => (
+          {children && children.sort((a, b) => a.price - b.price).slice(0, 7).map((product) => (
             <div key={product.id} className="product-card">
               <img src={product.image} alt={product.name} className="product-image" />
               <div className="product-info">
