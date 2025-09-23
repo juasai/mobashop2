@@ -4,6 +4,70 @@
   gap: 5px;
   cursor: pointer;
 
+  .cart-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #004080;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1000;
+    padding: 20px;
+
+    .cart-modal-content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .close-button {
+        align-self: flex-end;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #f79300;
+      }
+
+      .cart-items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .cart-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0;
+          border-bottom: 1px solid #f79300;
+
+          .remove-button {
+            background-color: #f79300;
+            color: #004080;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background-color: #cc7400;
+            }
+          }
+        }
+      }
+
+      .cart-total {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: right;
+        color: #f79300;
+      }
+    }
+  }
+
   .cart-counter {
     background-color: #f79300;
     color: black;
