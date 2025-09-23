@@ -8,7 +8,7 @@ const ItemDetail = ({ product }) => {
   const { addToCart } = useContext(CartContext);
 
   const handleAddToCart = (count) => {
-    addToCart(product, count);
+    addToCart({ ...product, price: product.price }, count);
     setAddedToCart(true);
   };
 
