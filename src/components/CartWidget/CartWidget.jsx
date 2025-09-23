@@ -4,7 +4,7 @@ import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
-  const { cart, getTotalItems, getTotalPrice } = useContext(CartContext);
+  const { cart, getTotalItems, getTotalPrice, removeFromCart } = useContext(CartContext);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const toggleCart = () => {
@@ -28,7 +28,10 @@ const CartWidget = () => {
                       <span>Cantidad: {item.quantity}</span>
                       <span>Precio: ${item.price}</span>
                       <span>Subtotal: ${item.price * item.quantity}</span>
-                      <button className="remove-button" onClick={() => removeFromCart(item.id)}>Eliminar</button>
+                      <button className="remove-button" onClick={(e) => {
+                        e.stopPropagation(); // Prevent closing the modal
+                        removeFromCart(item.id);
+                      }}>Eliminar</button>
                     </li>
                   ))}
                 </ul>
