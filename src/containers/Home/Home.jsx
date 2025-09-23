@@ -18,7 +18,7 @@ const Home = ({ welcomeMessage, children }) => {
               <div className="product-info">
                 <h3 className="product-title">{product.title}</h3>
                 <p className="product-price">Precio: ${product.price}</p>
-                <button className="buy-now-button">Comprar ahora</button>
+                <a href={`/producto/${product.id}`} className="buy-now-button">Ver Detalle</a>
               </div>
             </div>
           ))}
